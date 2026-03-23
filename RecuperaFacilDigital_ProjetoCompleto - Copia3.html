@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recupera Fácil Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
+
+    <div id="intro" aria-hidden="true">
+        <div class="intro-content">
+            <h1>Recupera Fácil Digital</h1>
+            <p>Recuperando resultados, restaurando crescimento.</p>
+
+            <div class="chart-box">
+                <div class="chart-line">
+                    <span class="point p1"></span>
+                    <span class="point p2"></span>
+                    <span class="point p3"></span>
+                    <span class="point p4"></span>
+                    <span class="point p5"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="menu">
+        <img src="img/logo.png" class="logo" alt="Logo da Recupera Fácil Digital">
+
+        <nav aria-label="Menu principal">
+            <a href="#home">Home</a>
+            <a href="#apresentacao">Apresentação</a>
+            <a href="#quem">Quem Somos</a>
+            <a href="#demo">Demonstração</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main id="conteudo-principal">
+        <section id="home" class="banner">
+            <div class="carousel-background">
+                <div class="carousel-slide slide-1 active"></div>
+                <div class="carousel-slide slide-2"></div>
+                <div class="carousel-slide slide-3"></div>
+                <div class="carousel-overlay"></div>
+            </div>
+            <div class="banner-content">
+                <h1 class="texto-voz">Recupera Fácil Digital</h1>
+                <p class="texto-voz">Soluções inteligentes para recuperação de créditos empresariais.</p>
+                <button type="button" onclick="document.getElementById('demo').scrollIntoView({ behavior: 'smooth' })"
+                    aria-label="Ir para a seção de demonstração">
+                    Testar Demonstração
+                </button>
+            </div>
+        </section>
+
+        <section id="apresentacao" aria-labelledby="titulo-servicos">
+            <h2 id="titulo-servicos" class="texto-voz">Nossos Serviços</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <img src="img/carrocel_img1.jpg" alt="Ilustração de negociação de crédito">
+                    <h3 class="texto-voz">Negociação</h3>
+                    <p class="texto-voz">Estratégias modernas de recuperação de crédito.</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/atendimento.jpg" alt="Profissional realizando atendimento ao cliente">
+                    <h3 class="texto-voz">Atendimento</h3>
+                    <p class="texto-voz">Equipe preparada para negociação com clientes.</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/metodologia.jpg" alt="Representação visual da metodologia de recuperação financeira">
+                    <h3 class="texto-voz">Metodologia</h3>
+                    <p class="texto-voz">
+                        Controle completo da carteira de inadimplência, cuidando para preservar o relacionamento com o
+                        cliente.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quem" aria-labelledby="titulo-quem-somos">
+            <div class="quem-somos-container">
+                <div class="quem-somos-texto">
+                    <h2 id="titulo-quem-somos" class="texto-voz">Quem Somos</h2>
+                    <p class="texto-voz">
+                        A Recupera Fácil Digital nasceu para ajudar empresas a recuperar créditos de forma inteligente e
+                        estratégica.
+                        Prestamos apoio e treinamento ao setor local de cobrança, trabalhando em parceria ou assumindo a
+                        carteira total,
+                        conforme a solicitação do cliente. Nossa metodologia busca preservar o relacionamento com o
+                        cliente
+                        devedor,
+                        enquanto promove soluções eficientes de negociação.
+                    </p>
+                </div>
+                <div class="quem-somos-imagem">
+                    <img src="img/equipe.jpg" alt="Equipe da Recupera Fácil Digital reunida">
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" aria-labelledby="titulo-demo">
+            <h2 id="titulo-demo" class="texto-voz">Simule uma Negociação</h2>
+
+            <input type="number" id="valorDivida" placeholder="Digite o valor da dívida" class="demo-input">
+
+            <button type="button" onclick="simular()" aria-label="Simular negociação da dívida" class="demo-btn">
+                Simular
+            </button>
+
+            <div id="resultado" aria-live="polite"></div>
+        </section>
+
+        <section id="grafico" aria-labelledby="titulo-grafico">
+            <h2 id="titulo-grafico" class="texto-voz">Recuperação de Créditos</h2>
+            <canvas id="graficoRecuperacao" aria-label="Gráfico de recuperação de créditos" role="img"></canvas>
+        </section>
+
+        <section id="contato" aria-labelledby="titulo-contato">
+            <div class="contato-box">
+                <h2 id="titulo-contato" class="texto-voz">Entre em Contato</h2>
+
+                <form>
+                    <label for="nome">Seu nome</label>
+                    <input id="nome" type="text" placeholder="Seu nome" required>
+
+                    <label for="email">Seu e-mail</label>
+                    <input id="email" type="email" placeholder="Seu e-mail" required>
+
+                    <label for="telefone">Seu telefone</label>
+                    <input id="telefone" type="tel" placeholder="Seu telefone">
+
+                    <label for="mensagem">Sua mensagem</label>
+                    <input type="text" id="mensagem" placeholder="Digite sua mensagem">
+
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <a class="whats-float" href="https://wa.me/5551999999999" aria-label="Falar no WhatsApp">
+        <img src="img/whats-logo.webp" alt="Ícone do WhatsApp" class="whatsapp-btn">
+    </a>
+
+    <footer>
+        <p class="texto-voz">© 2026 Recupera Fácil Digital - Soluções Digitais</p>
+    </footer>
+
+    <div class="menu-acessibilidade" aria-label="Menu de acessibilidade">
+        <button type="button" onclick="aumentarFonte()" aria-label="Aumentar tamanho da fonte"
+            class="btn-acess">A+</button>
+        <button type="button" onclick="diminuirFonte()" aria-label="Diminuir tamanho da fonte"
+            class="btn-acess">A-</button>
+        <button type="button" onclick="alternarContraste()" aria-label="Ativar ou desativar alto contraste"
+            class="btn-acess">Contraste</button>
+        <button type="button" onclick="lerPagina()" aria-label="Ouvir todo o conteúdo principal da página"
+            class="btn-acess">Ouvir página</button>
+        <button type="button" aria-label="Abrir menu acessibilidade" id="abrir-menu-acess">
+            <img src="img/acessibilidade.png" alt="Ícone de acessibilidade" width="34">
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

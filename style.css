@@ -1,0 +1,656 @@
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #111827;
+    background-color: #ffffff;
+}
+
+/* Marca d'água */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("img/marca.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px;
+    opacity: 0.08;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Link de pular conteúdo */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    background: #ffffff;
+    color: #000000;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    z-index: 100001;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* Cabeçalho */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 40px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.logo {
+    height: 200px;
+    width: auto;
+    display: block;
+}
+
+.menu nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #60a5fa;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    text-align: center;
+    padding: 180px 20px 120px;
+    color: white;
+    overflow: hidden;
+}
+
+.carousel-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide.slide-1 {
+    background-image: url('img/carrocel_img1.jpg');
+}
+
+.carousel-slide.slide-2 {
+    background-image: url('img/carrocel_img2.jpg');
+}
+
+.carousel-slide.slide-3 {
+    background-image: url('img/carrocel_img3.jpg');
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(37, 99, 235, 0.75);
+    /* Azul mantendo a identidade da marca */
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.banner h1,
+.banner p {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seções */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 260px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.img-centro {
+    display: block;
+    margin: 25px auto 0;
+    width: 60%;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+/* Formulários */
+form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    font-family: inherit;
+}
+
+/* Caixa de contato compacta e elegante */
+.contato-box {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    /* Sombra ajustada */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.contato-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #111827;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.contato-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contato-box label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: -8px;
+    margin-left: 5px;
+}
+
+.contato-box input,
+.contato-box textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #d1d5db;
+    /* Borda visível */
+    outline: none;
+    border-radius: 12px;
+    font-size: 15px;
+    background: #ffffff;
+    /* Fundo branco para destacar a borda */
+    box-sizing: border-box;
+    color: #111827;
+    transition: all 0.3s ease;
+}
+
+.contato-box input::placeholder,
+.contato-box textarea::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.contato-box textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.contato-box input:focus,
+.contato-box textarea:focus {
+    background: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.contato-box button {
+    margin-top: 5px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Campos da seção Simule uma Negociação */
+.demo-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 14px 16px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 15px;
+    background: #ffffff;
+    color: #111827;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto 15px auto;
+    box-sizing: border-box;
+}
+
+.demo-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+    outline: none;
+    background: #ffffff;
+}
+
+.demo-btn {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Botões */
+button {
+    background: linear-gradient(135deg, #06045e, #1e40af);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.6);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent);
+    transition: 0.5s;
+}
+
+button:hover::after {
+    left: 100%;
+}
+
+/* Gráfico */
+#grafico {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#graficoRecuperacao {
+    max-width: 900px;
+    width: 100%;
+    height: 400px !important;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background: #0a2540;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Botão WhatsApp */
+.whats-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: transparent;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    text-decoration: none;
+}
+
+.whatsapp-btn {
+    width: 47px;
+    height: auto;
+    display: block;
+}
+
+/* Menu de acessibilidade */
+/* Esconde os botões de ação por padrão */
+.btn-acess {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(10px);
+    /* Leve efeito de movimento ao aparecer */
+}
+
+/* Quando o mouse passa sobre o container do menu */
+.menu-acessibilidade:hover .btn-acess {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Estilização básica para alinhar lado a lado */
+.menu-acessibilidade {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row-reverse;
+    /* Inverte a ordem para o ícone ser o gatilho visual à direita */
+    width: max-content;
+}
+
+/* Revela também quando o usuário navega via teclado (Tab) */
+.menu-acessibilidade:focus-within .btn-acess {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+
+/* Leitura por clique */
+.texto-voz {
+    transition: 0.2s;
+}
+
+.texto-voz:hover,
+.texto-voz:focus {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Alto contraste */
+.alto-contraste {
+    background: black !important;
+    color: white !important;
+}
+
+.alto-contraste::before {
+    display: none;
+}
+
+.alto-contraste section,
+.alto-contraste .card,
+.alto-contraste .contato-box,
+.alto-contraste .menu,
+.alto-contraste footer,
+.alto-contraste .banner,
+.alto-contraste #grafico {
+    background: black !important;
+    color: white !important;
+    border-color: white !important;
+}
+
+.alto-contraste a,
+.alto-contraste h1,
+.alto-contraste h2,
+.alto-contraste h3,
+.alto-contraste p,
+.alto-contraste label,
+.alto-contraste span,
+.alto-contraste li,
+.alto-contraste small {
+    color: white !important;
+}
+
+.alto-contraste input,
+.alto-contraste textarea {
+    background: #111 !important;
+    color: white !important;
+    border: 1px solid white !important;
+}
+
+.alto-contraste button {
+    background: #111 !important;
+    color: white !important;
+    border: 1px solid white !important;
+    box-shadow: none !important;
+}
+
+.alto-contraste .card img,
+.alto-contraste .img-centro,
+.alto-contraste .whatsapp-btn,
+.alto-contraste .logo {
+    filter: grayscale(100%) contrast(120%);
+}
+
+/* Foco visível */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+.texto-voz:focus {
+    outline: 3px solid #facc15;
+    outline-offset: 3px;
+}
+
+/* Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    #intro {
+        display: none;
+    }
+}
+
+/* Seção Quem Somos Ajustada */
+.quem-somos-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.quem-somos-texto {
+    flex: 1;
+}
+
+.quem-somos-imagem {
+    flex: 1;
+}
+
+.quem-somos-imagem img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .quem-somos-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu {
+        padding: 0 20px;
+    }
+
+    .menu nav {
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .logo {
+        height: 150px;
+    }
+
+    .img-centro {
+        width: 90%;
+    }
+
+    .contato-box {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    .menu {
+        height: auto;
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 10px;
+        overflow: visible;
+    }
+
+    .logo {
+        height: 110px;
+    }
+
+    .menu nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .banner {
+        padding: 220px 20px 100px;
+    }
+
+    .intro-content h1 {
+        font-size: 36px;
+    }
+
+    .intro-content p {
+        font-size: 18px;
+    }
+
+    .chart-box {
+        height: 180px;
+    }
+
+    .menu-acessibilidade {
+        left: 10px;
+        bottom: 90px;
+        gap: 8px;
+    }
+
+    .menu-acessibilidade button {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}
